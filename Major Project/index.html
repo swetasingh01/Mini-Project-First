@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast App</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <h1>Sweta Singh Rathaur</h1>
+        <ul>
+            <li>Home</li>
+            <li>Forecast</li>
+            <li>Charts</li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="header">
+            <div class="search-container">
+                <div class="search-box">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="cityInput" placeholder="Enter city name..." aria-label="City name input">
+                </div>
+                <button onclick="searchWeather()"><i class="fas fa-cloud-sun"></i> Search</button>
+            </div>
+        </div>
+
+        <div class="weather-card">
+            <div id="currentWeather" class="forecast-card" role="region" aria-labelledby="currentWeatherTitle"></div>
+            <div class="detail-card">
+                <h3 id="currentWeatherTitle">Weather Details</h3>
+                <div id="weatherDetails" class="weather-details"></div>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <h2 class="chart-title">7-Day Temperature Forecast</h2>
+            <canvas id="tempChart"></canvas>
+        </div>
+
+        <div class="chart-container">
+            <h2 class="chart-title">7-Day Humidity Forecast</h2>
+            <canvas id="humidityChart"></canvas>
+        </div>
+
+        <div id="dailyForecast" class="daily-forecast"></div>
+        <div id="loading" class="loading" style="display: none;">
+            <div class="loader" role="alert" aria-live="assertive"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Designed and Developed by "Sweta Singh Rathaur"</p>
+    </footer>
+
+    <script src="script.js"></script> 
+</body>
+
+</html>
