@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Result Management System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Academic Results Portal</h1>
+        </div>
+
+        <!-- Add Student Section -->
+        <div class="card" id="studentForm">
+            <h2 id="formTitle">Add New Student</h2>
+            <input type="hidden" id="originalRollNo">
+            <div class="form-grid">
+                <div class="input-group">
+                    <label>Full Name</label>
+                    <input type="text" class="input-field" id="studentName" placeholder="Enter full name">
+                </div>
+                <div class="input-group">
+                    <label>Roll Number</label>
+                    <input type="text" class="input-field" id="rollNumber" placeholder="Enter roll number">
+                </div>
+            </div>
+
+            <h3>Academic Performance</h3>
+            <div class="subject-grid">
+                <div class="input-group">
+                    <label>JAVA Programming</label>
+                    <input type="number" class="input-field" id="java" min="0" max="100">
+                </div>
+                <div class="input-group">
+                    <label>Database Systems</label>
+                    <input type="number" class="input-field" id="dbms" min="0" max="100">
+                </div>
+                <div class="input-group">
+                    <label>Automata Theory</label>
+                    <input type="number" class="input-field" id="automata" min="0" max="100">
+                </div>
+                <div class="input-group">
+                    <label>Microprocessor</label>
+                    <input type="number" class="input-field" id="microprocessor" min="0" max="100">
+                </div>
+                <div class="input-group">
+                    <label>Discrete Maths</label>
+                    <input type="number" class="input-field" id="maths" min="0" max="100">
+                </div>
+            </div>
+            <div class="actions">
+                <button class="btn btn-primary" onclick="handleSubmit()">
+                    <span>💾 Save Record</span>
+                </button>
+                <button class="btn btn-secondary hidden" onclick="cancelEdit()" id="cancelBtn">
+                    <span>❌ Cancel</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Search Section -->
+        <div class="card">
+            <h2>Student Search</h2>
+            <div class="search-section">
+                <input type="text" class="input-field" id="searchName" placeholder="Search By Student Name" style="flex:1">
+                <button class="btn btn-primary" onclick="searchStudent()">
+                    <span>🔍 Search</span>
+                </button>
+            </div>
+            <div id="searchResults"></div>
+        </div>
+
+        <!-- Student Records -->
+        <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                <h2>Student Records</h2>
+                <button class="btn btn-primary" onclick="loadStudents()">
+                    <span>🔄 Refresh List</span>
+                </button>
+            </div>
+            <table class="students-table">
+                <thead>
+                    <tr>
+                        <th>Roll No</th>
+                        <th>Student Name</th>
+                        <th>Total Marks</th>
+                        <th>Percentage</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="allStudents">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Notification System -->
+    <div id="notification" class="notification"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
